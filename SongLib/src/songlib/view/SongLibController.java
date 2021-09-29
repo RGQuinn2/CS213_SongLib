@@ -165,13 +165,16 @@ public class SongLibController {
 	public void loadSongListFromFile() {
 		try {
 			File songListFile = new File("songlist.txt");
-			Scanner songFileScanner;
-			songFileScanner = new Scanner(songListFile);
-			while(songFileScanner.hasNextLine()) {
-				Song loadedSong = Song.fromString(songFileScanner.nextLine());
-				songList.add(loadedSong);
+			if(songListFile.exists() && !songListFile.isDirectory()) {
+				Scanner songFileScanner;
+				songFileScanner = new Scanner(songListFile);
+				while(songFileScanner.hasNextLine()) {
+					Song loadedSong = Song.fromString(songFileScanner.nextLine());
+					songList.add(loadedSong);
+				}
+				songFileScanner.close();
 			}
-			songFileScanner.close();
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
