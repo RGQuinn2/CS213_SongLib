@@ -5,19 +5,46 @@
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 
-<GridPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="songlib.view.SongLibController"  vgap="10" hgap="10">
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="songlib.view.SongLibController">
 	<!-- Left Column -->
-		<Text text="Song Library" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-		<Text text="Name : Artist" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM"/>
-		<ListView fx:id="songListView" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-		<HBox alignment="CENTER" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="3" prefHeight="50" prefWidth="200">
-			<Button fx:id="addSongButton" text="Add" onAction="#addSong" />
-			<Button fx:id="deleteSongButton" text="Delete" onAction="#deleteSong" />
-		</HBox>
+		<VBox  spacing="10" prefHeight="50" prefWidth="200">
+			<Text text="Song Library" />
+			<Text text="Name : Artist" />
+			<ListView fx:id="songListView" />
+			<HBox alignment="CENTER" spacing="10" prefHeight="50" prefWidth="200">
+				<Button fx:id="addSongButton" text="New..." onAction="#addSong" />
+				<Button fx:id="deleteSongButton" text="Delete" onAction="#deleteSong" />
+			</HBox>
+		</VBox>
+	
+
 	
 	<!-- Right Column -->
-		<Text text="Song Information" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.halignment="CENTER"/>
-		
-		<Text text="Name:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
-		<TextField fx:id="songNameField" prefColumnCount="10" promptText="Song Name" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
-</GridPane>
+		<VBox spacing="10" prefHeight="50" prefWidth="200">
+			<Text text="Song Information"/>
+
+			<HBox alignment="CENTER" spacing="10" prefHeight="50" prefWidth="200">
+				<Text text="Name:" />
+				<TextField fx:id="songNameField" promptText="Song Name"/>
+			</HBox>
+			<HBox alignment="CENTER" spacing="10" prefHeight="50" prefWidth="200">
+				<Text text="Artist:" />
+				<TextField fx:id="songArtistField" promptText="Song Artist" />
+			</HBox>
+			<HBox alignment="CENTER" spacing="10" prefHeight="50" prefWidth="200">
+				<Text text="Album:" />
+				<TextField fx:id="songAlbumField" promptText="Song Album" />
+			</HBox>
+			<HBox alignment="CENTER" spacing="10" prefHeight="50" prefWidth="200">
+				<Text text="Year:" />
+				<TextField fx:id="songYearField" promptText="Song Year" />
+			</HBox>
+			
+			<Text text="" fx:id="inputFeedbackText" />
+			<HBox alignment="CENTER" spacing="10" prefHeight="50" prefWidth="200">
+				<Button fx:id="saveEditButton" text="Save song" onAction="#saveEdit" />
+				<Button fx:id="cancelEditButton" text="Cancel changes..." onAction="#cancelEdit" />
+			</HBox>
+		</VBox>
+
+</HBox>

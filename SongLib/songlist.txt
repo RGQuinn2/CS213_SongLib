@@ -1,0 +1,2 @@
+name:New song|artist:new artist|album:sick album|year:2008
+name:second song|artist:different artist|album:dope album|year:2005
